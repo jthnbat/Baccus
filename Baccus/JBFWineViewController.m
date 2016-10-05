@@ -138,4 +138,9 @@
 }
 */
 
+#pragma mark - UISplitViewControllerDelegate
+
+-(void) collapseSecondaryViewController:(UIViewController *)secondaryViewController forSplitViewController:(UISplitViewController *)splitViewController{
+    
+}
 @end

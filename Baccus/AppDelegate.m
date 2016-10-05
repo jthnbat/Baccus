@@ -10,6 +10,8 @@
 #import "JBFWineModel.h"
 #import "JBFWineViewController.h"
 #import "JBFWebViewController.h"
+#import "JBFWineryModel.h"
+#import "JBFWineryTableTableViewController.h"
 
 @implementation AppDelegate
 
@@ -17,60 +19,30 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
     
-    JBFWineModel *tintorro = [JBFWineModel wineWithName:@"Bembibre"
-                                                   type:@"tinto"
-                                                  photo:[UIImage imageNamed:@"bembibre.jpg"]
-                                             companyWeb:[NSURL URLWithString:@"http://www.avgvstvsforvm.com"]
-                                                  notes:@"Agregue aqui su comentario sobre el vino."
-                                                 origin:@"El Bierzo"
-                                                 rating:5
-                                                 grapes:@[@"Menzia",@"Garnatxa"]
-                                            companyName:@"Dominio de Tares"];
-    
-    JBFWineModel *albarinho = [JBFWineModel wineWithName:@"Zarate"
-                                                   type:@"blanco"
-                                                  photo:[UIImage imageNamed:@"zarate.gif"]
-                                             companyWeb:[NSURL URLWithString:@"http://www.google.es"]
-                                                  notes:@"Agregue aqui su comentario sobre el vino."
-                                                 origin:@"El Bierzo"
-                                                 rating:5
-                                                 grapes:@[@"Menzia",@"Garnatxa"]
-                                            companyName:@"Dominio de Tares"];
-    
-    JBFWineModel *champagne = [JBFWineModel wineWithName:@"Champange"
-                                                   type:@"Otros"
-                                                  photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]
-                                             companyWeb:[NSURL URLWithString:@"http://www.freixenet.es"]
-                                                  notes:@"Agregue aqui su comentario sobre el vino."
-                                                 origin:@"El Bierzo"
-                                                 rating:5
-                                                 grapes:@[@"Menzia",@"Garnatxa"]
-                                            companyName:@"Dominio de Tares"];
+    JBFWineryModel *winery = [[JBFWineryModel alloc]init];
     
     // Creamos los controladores
-    //JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:tintorro];
-    //JBFWebViewController *webVC =[[JBFWebViewController alloc]initWithModel:tintorro];
-    JBFWineViewController *tintoVC = [[JBFWineViewController alloc]initWithModel:tintorro];
-    JBFWineViewController *blancoVC = [[JBFWineViewController alloc]initWithModel:albarinho];
-    JBFWineViewController *champagneVC = [[JBFWineViewController alloc]initWithModel:champagne];
     
-    // Creamos un combinador
-    UINavigationController *tintoNav = [[UINavigationController alloc]initWithRootViewController:tintoVC];
-    UINavigationController *blancoNav = [[UINavigationController alloc]initWithRootViewController:blancoVC];
-    UINavigationController *champagneNav = [[UINavigationController alloc]initWithRootViewController:champagneVC];
+    JBFWineryTableTableViewController *wineryVC = [[JBFWineryTableTableViewController alloc]initWithModel:winery style:UITableViewStylePlain];
     
-    UITabBarController *tabVC = [[UITabBarController alloc]init];
-    [tabVC setViewControllers:@[tintoNav,blancoNav,champagneNav]];
+    JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:[winery redWineAtIndex:0]];
     
     
-    /*
-    UITabBarController *tabVC = [[UITabBarController alloc]init];
-    [tabVC setViewControllers:@[wineVC,webVC]];
-     */
+    // Creamos los navigation
+    UINavigationController *wineryNav = [[UINavigationController alloc]initWithRootViewController:wineryVC];
+    UINavigationController *wineNav = [[UINavigationController alloc]initWithRootViewController:wineVC];
     
-    [[self window]setRootViewController:tabVC];
+    
+    // Creamos el combinador: SplitView
+    UISplitViewController *splitVC = [[UISplitViewController alloc]init];
+    
+    [splitVC setViewControllers:@[wineryNav,wineNav]];
+    [splitVC setDelegate:wineVC];
+    
+    [[self window]setRootViewController:splitVC];
     
     self.window.backgroundColor = [UIColor orangeColor];
     [self.window makeKeyAndVisible];
