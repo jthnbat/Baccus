@@ -1,19 +1,19 @@
 //
-//  JBFWineryTableTableViewController.m
+//  JBFWineryTableViewController.m
 //  Baccus
 //
 //  Created by Jonathan Batlle on 9/25/16.
 //  Copyright © 2016 JBF. All rights reserved.
 //
 
-#import "JBFWineryTableTableViewController.h"
+#import "JBFWineryTableViewController.h"
 #import "JBFWineViewController.h"
 
-@interface JBFWineryTableTableViewController ()
+@interface JBFWineryTableViewController ()
 
 @end
 
-@implementation JBFWineryTableTableViewController
+@implementation JBFWineryTableViewController
 
 -(id) initWithModel: (JBFWineryModel *) model
               style:(UITableViewStyle)style{
@@ -136,12 +136,24 @@
         wine = [[self model]otherWineAtIndex:[indexPath row]];
     }
     
+    [[self delegate]wineryTableViewController:self didSelectWine:wine];
+    
+    // Notificacion
+    // @{algo:algo} serveix per cread "diccionaris"
+    NSNotification *n = [NSNotification notificationWithName:NEW_WINE_NOTIFICATION_NAME
+                                                      object:self
+                                                    userInfo:@{WINE_KEY: wine}];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:[n name]
+                                                       object:nil];
+    
+    /*
     // Creamos un controlador para dicho vino
     JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:wine];
     
     // Hacemos un push al navigation controller dentro del cual estamos
     [[self navigationController]pushViewController:wineVC animated:YES];
-    
+    */
 }
 
 /*

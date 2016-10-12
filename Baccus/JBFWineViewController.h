@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JBFWineModel.h"
+#import "JBFWineryTableViewController.h"
 
-@interface JBFWineViewController : UIViewController <UISplitViewControllerDelegate>
+@interface JBFWineViewController : UIViewController <UISplitViewControllerDelegate,WineryTableViewControllerDelegate>
 
 //IBOutlet significa Interface Builder Outlet y no es nada mas que un puntero a void. Sirve para indicar al compilador que la view esta definida en el xib.
 @property (weak,nonatomic) IBOutlet UILabel *nameLabel;

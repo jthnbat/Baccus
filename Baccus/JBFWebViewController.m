@@ -7,6 +7,7 @@
 //
 
 #import "JBFWebViewController.h"
+#import "JBFWineryTableViewController.h"
 
 @interface JBFWebViewController ()
 
@@ -23,10 +24,36 @@
     return self;
 }
 
+-(void) viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    // Baja de la notificacion
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     [self displayURL: [[self model]wineCompanyWeb]];
+    
+    // Alta notificacion
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    // @Selector serveix per passar del nom del missatge al numero o codi que realment s'envia en ObjectiveC quan s'envia un missatge. Objective C esta muntat aixi a la hora de enviar missatges, no s'envia el nom si no que lo que s'envia es el numero corresponent a aquell missatge.
+    // Sempre que es passa el nom de un misstge per argument sempre s'ha de fer a traves del selector.
+    [nc addObserver:self
+           selector:@selector(wineDidChange:)
+               name:NEW_WINE_NOTIFICATION_NAME
+             object:nil];
+}
+
+-(void) wineDidChange: (NSNotification *) notification{
+    NSDictionary *dict = [notification userInfo];
+    JBFWineModel *newWine = [dict objectForKey:WINE_KEY];
+    
+    // Actualizamos el modelo
+    [self setModel:newWine];
+    [self displayURL:[[self model]wineCompanyWeb]];
 }
 
 #pragma mark - UIWebViewDelegate

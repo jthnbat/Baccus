@@ -11,7 +11,7 @@
 #import "JBFWineViewController.h"
 #import "JBFWebViewController.h"
 #import "JBFWineryModel.h"
-#import "JBFWineryTableTableViewController.h"
+#import "JBFWineryTableViewController.h"
 
 @implementation AppDelegate
 
@@ -26,7 +26,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Creamos los controladores
     
-    JBFWineryTableTableViewController *wineryVC = [[JBFWineryTableTableViewController alloc]initWithModel:winery style:UITableViewStylePlain];
+    JBFWineryTableViewController *wineryVC = [[JBFWineryTableViewController alloc]initWithModel:winery style:UITableViewStylePlain];
     
     JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:[winery redWineAtIndex:0]];
     
@@ -41,6 +41,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [splitVC setViewControllers:@[wineryNav,wineNav]];
     [splitVC setDelegate:wineVC];
+    [wineryVC setDelegate:wineVC];
     
     [[self window]setRootViewController:splitVC];
     

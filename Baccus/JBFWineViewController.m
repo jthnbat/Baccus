@@ -146,4 +146,13 @@
     }
 }
 
+#pragma mark - WineryTableViewControllerDelegate
+
+-(void) wineryTableViewController:(JBFWineryTableViewController *)wineryVC didSelectWine:(JBFWineModel *)wine{
+    [self setModel:wine];
+    [self setTitle:[wine name]];
+    
+    [self syncModelWithView];
+}
+
 @end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB08EE8B1D97E698001A502D /* JBFWineryTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08EE8A1D97E698001A502D /* JBFWineryTableTableViewController.m */; };
+		AB08EE8B1D97E698001A502D /* JBFWineryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB08EE8A1D97E698001A502D /* JBFWineryTableViewController.m */; };
 		AB2B11001C358E1500522AC5 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB2B10FF1C358E1500522AC5 /* splitView_score_glass@2x.png */; };
 		AB2B11031C358EA000522AC5 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB2B11021C358EA000522AC5 /* bembibre.jpg */; };
 		AB7FC5101D8CBDD400D5FF3A /* JBFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7FC50E1D8CBDD400D5FF3A /* JBFWebViewController.m */; };
@@ -25,8 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AB08EE891D97E698001A502D /* JBFWineryTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFWineryTableTableViewController.h; sourceTree = "<group>"; };
-		AB08EE8A1D97E698001A502D /* JBFWineryTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBFWineryTableTableViewController.m; sourceTree = "<group>"; };
+		AB08EE891D97E698001A502D /* JBFWineryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFWineryTableViewController.h; sourceTree = "<group>"; };
+		AB08EE8A1D97E698001A502D /* JBFWineryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBFWineryTableViewController.m; sourceTree = "<group>"; };
 		AB2B10FF1C358E1500522AC5 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
 		AB2B11021C358EA000522AC5 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
 		AB7FC50D1D8CBDD400D5FF3A /* JBFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFWebViewController.h; sourceTree = "<group>"; };
@@ -132,8 +132,8 @@
 				AB7FC50D1D8CBDD400D5FF3A /* JBFWebViewController.h */,
 				AB7FC50E1D8CBDD400D5FF3A /* JBFWebViewController.m */,
 				AB7FC50F1D8CBDD400D5FF3A /* JBFWebViewController.xib */,
-				AB08EE891D97E698001A502D /* JBFWineryTableTableViewController.h */,
-				AB08EE8A1D97E698001A502D /* JBFWineryTableTableViewController.m */,
+				AB08EE891D97E698001A502D /* JBFWineryTableViewController.h */,
+				AB08EE8A1D97E698001A502D /* JBFWineryTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				AB7FC5101D8CBDD400D5FF3A /* JBFWebViewController.m in Sources */,
 				ABF716B01C349E9200B6050B /* JBFWineViewController.m in Sources */,
 				ABF716771C34680800B6050B /* main.m in Sources */,
-				AB08EE8B1D97E698001A502D /* JBFWineryTableTableViewController.m in Sources */,
+				AB08EE8B1D97E698001A502D /* JBFWineryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
