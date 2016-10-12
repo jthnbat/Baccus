@@ -140,7 +140,10 @@
 
 #pragma mark - UISplitViewControllerDelegate
 
--(void) collapseSecondaryViewController:(UIViewController *)secondaryViewController forSplitViewController:(UISplitViewController *)splitViewController{
-    
+-(void)splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode{
+    if(displayMode==UISplitViewControllerDisplayModePrimaryHidden){
+        [[self navigationItem]setLeftBarButtonItem:[svc displayModeButtonItem]];
+    }
 }
+
 @end
