@@ -28,7 +28,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     JBFWineryTableViewController *wineryVC = [[JBFWineryTableViewController alloc]initWithModel:winery style:UITableViewStylePlain];
     
-    JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:[winery redWineAtIndex:0]];
+    JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:[wineryVC lastSelectedWine]];
     
     
     // Creamos los navigation
