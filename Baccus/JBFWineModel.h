@@ -13,26 +13,28 @@
 
 @interface JBFWineModel : NSObject
 
-@property (strong,nonatomic) NSString *type;
-@property (strong,nonatomic) UIImage *photo;
+@property (copy,nonatomic) NSString *type;
+@property (strong,nonatomic,readonly) UIImage *photo;
+@property (strong,nonatomic) NSURL *photoURL;
 @property (strong,nonatomic) NSURL *wineCompanyWeb;
-@property (strong,nonatomic) NSString *notes;
-@property (strong,nonatomic) NSString *origin;
+@property (copy,nonatomic) NSString *notes;
+@property (copy,nonatomic) NSString *origin;
 @property (nonatomic) int rating;
 @property (strong,nonatomic) NSArray *grapes;
-@property (strong,nonatomic) NSString *name;
-@property (strong,nonatomic) NSString *wineCompanyName;
+@property (copy,nonatomic) NSString *name;
+@property (copy,nonatomic) NSString *wineCompanyName;
+
 
 //Class Constructors (son funcions de clase, no hace falta reservar memoria o crear la clase para verlos, son como el static de java)
 +(id)wineWithName: (NSString *)name
              type: (NSString *)type
-            photo:(UIImage *)photo
        companyWeb:(NSURL *)wineCompanyWeb
             notes:(NSString *)notes
            origin:(NSString *)origin
            rating:(int)rating
            grapes:(NSArray *)grapes
-      companyName:(NSString *)wineCompanyName;
+      companyName:(NSString *)wineCompanyName
+         photoURL:(NSURL *)photoURL;
 
 +(id)wineWithName: (NSString *)name
       companyName:(NSString *)wineCompanyName
@@ -43,18 +45,21 @@
 //Initializers
 -(id)initWithName: (NSString *)name
              type: (NSString *)type
-            photo:(UIImage *)photo
        companyWeb:(NSURL *)wineCompanyWeb
             notes:(NSString *)notes
            origin:(NSString *)origin
            rating:(int)rating
            grapes:(NSArray *)grapes
-      companyName:(NSString *)wineCompanyName;
+      companyName:(NSString *)wineCompanyName
+         photoURL:(NSURL *)photoURL;
 
 -(id)initWithName: (NSString *)name
       companyName:(NSString *)wineCompanyName
              type:(NSString *)type
            origin:(NSString *)origin;
+
+// Inicializador a partir de un diccionario JSON
+-(id)initWithDictionary:(NSDictionary *)dict;
 
 
 @end

@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "JBFWineModel.h"
 
+#define RED_WINE_KEY    @"Tinto"
+#define WHITE_WINE_KEY  @"Blanco"
+#define OTHER_WINE_KEY  @"Rosado"
+
 @interface JBFWineryModel : NSObject
 
 @property (readonly, nonatomic) NSInteger redWineCount;
