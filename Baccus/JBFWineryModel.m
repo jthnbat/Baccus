@@ -37,6 +37,7 @@
     if (self = [super init]) {
         
         // Metodo del tutorial "deprecated", el nuevo modo de hacerlo es el siguiente.
+        /*
         [self getRequest:@"action" withHandler:^(NSData *data, NSURLResponse *response, NSError *error){
             if(data!=nil){
                 NSArray *JSONObjects = [NSJSONSerialization JSONObjectWithData:data
@@ -78,43 +79,44 @@
             }
             
         }];
+        */
         
-        /*
-        JBFWineModel *tintorro = [JBFWineModel wineWithName:@"Bembibre"
-                                                       type:@"tinto"
-                                                      photo:[UIImage imageNamed:@"bembibre.jpg"]
-                                                 companyWeb:[NSURL URLWithString:@"http://www.avgvstvsforvm.com"]
-                                                      notes:@"Agregue aqui su comentario sobre el vino."
-                                                     origin:@"El Bierzo"
-                                                     rating:5
-                                                     grapes:@[@"Menzia",@"Garnatxa"]
-                                                companyName:@"Dominio de Tares"];
+        JBFWineModel *tintorro = [[JBFWineModel alloc] initWithName:@"Bembibre"
+                                                               type:@"tinto"
+                                                         companyWeb:[NSURL URLWithString:@"http://www.avgvstvsforvm.com"]
+                                                              notes:@"Agregue aqui su comentario sobre el vino."
+                                                             origin:@"El Bierzo"
+                                                             rating:5
+                                                             grapes:@[@"Menzia",@"Garnatxa"]
+                                                        companyName:@"Dominio de Tares"
+                                                              photo:[UIImage imageNamed:@"bembibre.jpg"]];
         
-        JBFWineModel *albarinho = [JBFWineModel wineWithName:@"Zarate"
-                                                        type:@"blanco"
-                                                       photo:[UIImage imageNamed:@"zarate.gif"]
-                                                  companyWeb:[NSURL URLWithString:@"http://www.google.es"]
-                                                       notes:@"Agregue aqui su comentario sobre el vino."
-                                                      origin:@"El Bierzo"
-                                                      rating:5
-                                                      grapes:@[@"Menzia",@"Garnatxa"]
-                                                 companyName:@"Dominio de Tares"];
+        JBFWineModel *albarinho = [[JBFWineModel alloc] initWithName:@"Zarate"
+                                                                type:@"blanco"
+                                   
+                                                          companyWeb:[NSURL URLWithString:@"http://www.google.es"]
+                                                               notes:@"Agregue aqui su comentario sobre el vino."
+                                                              origin:@"El Bierzo"
+                                                              rating:5
+                                                              grapes:@[@"Menzia",@"Garnatxa"]
+                                                         companyName:@"Dominio de Tares"
+                                                               photo:[UIImage imageNamed:@"zarate.gif"]];
         
-        JBFWineModel *champagne = [JBFWineModel wineWithName:@"Champange"
-                                                        type:@"Otros"
-                                                       photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]
-                                                  companyWeb:[NSURL URLWithString:@"http://www.freixenet.es"]
-                                                       notes:@"Agregue aqui su comentario sobre el vino."
-                                                      origin:@"El Bierzo"
-                                                      rating:5
-                                                      grapes:@[@"Menzia",@"Garnatxa"]
-                                                 companyName:@"Dominio de Tares"];
+        JBFWineModel *champagne = [[JBFWineModel alloc]initWithName:@"Champange"
+                                                               type:@"Otros"
+                                                         companyWeb:[NSURL URLWithString:@"http://www.freixenet.es"]
+                                                              notes:@"Agregue aqui su comentario sobre el vino."
+                                                             origin:@"El Bierzo"
+                                                             rating:5
+                                                             grapes:@[@"Menzia",@"Garnatxa"]
+                                                        companyName:@"Dominio de Tares"
+                                                              photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]];
         
         
         [self setRedWines:@[tintorro]];
         [self setWhiteWines:@[albarinho]];
         [self setOtherWines:@[champagne]];
-        */
+        
     }
     
     return self;

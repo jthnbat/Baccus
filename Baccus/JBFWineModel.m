@@ -75,6 +75,31 @@
            rating:(int)rating
            grapes:(NSArray *)grapes
       companyName:(NSString *)wineCompanyName
+         photo:(UIImage *)photo{
+    
+    if (self = [super init]){
+        _name=name;
+        _type=type;
+        _wineCompanyWeb=wineCompanyWeb;
+        _notes=notes;
+        _origin=origin;
+        _rating=rating;
+        _grapes=grapes;
+        _wineCompanyName=wineCompanyName;
+        _photo=photo;
+    }
+    
+    return self;
+}
+
+-(id)initWithName: (NSString *)name
+             type: (NSString *)type
+       companyWeb:(NSURL *)wineCompanyWeb
+            notes:(NSString *)notes
+           origin:(NSString *)origin
+           rating:(int)rating
+           grapes:(NSArray *)grapes
+      companyName:(NSString *)wineCompanyName
          photoURL:(NSURL *)photoURL{
     
     if (self = [super init]){

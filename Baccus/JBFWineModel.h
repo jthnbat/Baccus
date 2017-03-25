@@ -51,6 +51,16 @@
            rating:(int)rating
            grapes:(NSArray *)grapes
       companyName:(NSString *)wineCompanyName
+         photo:(UIImage *)photo;
+
+-(id)initWithName: (NSString *)name
+             type: (NSString *)type
+       companyWeb:(NSURL *)wineCompanyWeb
+            notes:(NSString *)notes
+           origin:(NSString *)origin
+           rating:(int)rating
+           grapes:(NSArray *)grapes
+      companyName:(NSString *)wineCompanyName
          photoURL:(NSURL *)photoURL;
 
 -(id)initWithName: (NSString *)name
