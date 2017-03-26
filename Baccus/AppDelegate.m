@@ -12,24 +12,26 @@
 #import "JBFWebViewController.h"
 #import "JBFWineryModel.h"
 #import "JBFWineryTableViewController.h"
+#import "Baccus-Prefix.pch"
 
 @implementation AppDelegate
 
+-(UIViewController *)rootViewControllerForPhoneWithModel: (JBFWineryModel *) aModel{
+    // Controladores
+    JBFWineryTableViewController *wineryVC = [[JBFWineryTableViewController alloc]initWithModel:aModel style:UITableViewStylePlain];
+    
+    // Combinador
+    UINavigationController *wineryNav = [[UINavigationController alloc]initWithRootViewController:wineryVC];
+    
+    // Delegados
+    [wineryVC setDelegate:wineryVC];
+    return wineryNav;
+}
 
-- (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // Override point for customization after application launch.
-    
-    JBFWineryModel *winery = [[JBFWineryModel alloc]init];
-    
+-(UIViewController *)rootViewControllerForPadWithModel: (JBFWineryModel *) aModel{
     // Creamos los controladores
-    
-    JBFWineryTableViewController *wineryVC = [[JBFWineryTableViewController alloc]initWithModel:winery style:UITableViewStylePlain];
-    
+    JBFWineryTableViewController *wineryVC = [[JBFWineryTableViewController alloc]initWithModel:aModel style:UITableViewStylePlain];
     JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:[wineryVC lastSelectedWine]];
-    
     
     // Creamos los navigation
     UINavigationController *wineryNav = [[UINavigationController alloc]initWithRootViewController:wineryVC];
@@ -44,6 +46,23 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [wineryVC setDelegate:wineVC];
     
     [[self window]setRootViewController:splitVC];
+    
+    return splitVC;
+}
+
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    JBFWineryModel *winery = [[JBFWineryModel alloc]init];
+    //Configuramos controladores, combindores y delegados segun el tipo de dispositivo
+    UIViewController *rootVC = nil;
+    if (!(IS_IPHONE)) {
+        rootVC = [self rootViewControllerForPadWithModel:winery];
+    }
+    else {
+        rootVC = [self rootViewControllerForPhoneWithModel:winery];
+    }
+    [[self window]setRootViewController:rootVC];
     
     self.window.backgroundColor = [UIColor orangeColor];
     [self.window makeKeyAndVisible];

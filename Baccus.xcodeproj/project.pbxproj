@@ -48,6 +48,7 @@
 		ABF716AD1C349E9200B6050B /* JBFWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBFWineViewController.h; sourceTree = "<group>"; };
 		ABF716AE1C349E9200B6050B /* JBFWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBFWineViewController.m; sourceTree = "<group>"; };
 		ABF716AF1C349E9200B6050B /* JBFWineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBFWineViewController.xib; sourceTree = "<group>"; };
+		ABFE7FD21E873EE10086716E /* Baccus-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Baccus-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		ABF716741C34680800B6050B /* Baccus */ = {
 			isa = PBXGroup;
 			children = (
+				ABFE7FD21E873EE10086716E /* Baccus-Prefix.pch */,
 				ABF716781C34680800B6050B /* AppDelegate.h */,
 				ABF716791C34680800B6050B /* AppDelegate.m */,
 				ABF716B21C349EC500B6050B /* Controllers */,
@@ -326,24 +328,30 @@
 		ABF716841C34680800B6050B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Baccus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Baccus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/Baccus-Prefix.pch";
 			};
 			name = Debug;
 		};
 		ABF716851C34680800B6050B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Baccus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Baccus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/Baccus-Prefix.pch";
 			};
 			name = Release;
 		};

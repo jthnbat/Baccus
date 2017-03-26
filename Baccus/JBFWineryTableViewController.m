@@ -48,6 +48,16 @@
                                                                             alpha:1]];
 }
 
+#pragma mark - JBFWineryTAbleViewControllerDelegate
+
+-(void) wineryTableViewController:(JBFWineryTableViewController *)wineryVC
+                    didSelectWine:(JBFWineModel *)wine{
+    // Crea el controlador
+    JBFWineViewController *wineVC = [[JBFWineViewController alloc]initWithModel:wine];
+    
+    [[self navigationController]pushViewController:wineVC animated:YES];
+}
+
 #pragma mark - Table view data source
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

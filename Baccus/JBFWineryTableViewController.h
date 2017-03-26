@@ -31,7 +31,7 @@
 
 @end
 
-@interface JBFWineryTableViewController : UITableViewController
+@interface JBFWineryTableViewController : UITableViewController <WineryTableViewControllerDelegate>
 
 @property (nonatomic,strong) JBFWineryModel *model;
 @property (nonatomic,weak) id<WineryTableViewControllerDelegate> delegate;
